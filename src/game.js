@@ -4,7 +4,10 @@ class Game {
   }
 
   initialiseGame() {
+    this.score = 0;
+    this.lives = 3;
     this.background = new Background(bkImage);
+    this.encounter = new Encounter(CELL_SIZE * 8, CELL_SIZE * 5);
     this.player = new Player(CELL_SIZE * 3, CELL_SIZE * 5);
   }
   drawGrid() {
@@ -15,6 +18,7 @@ class Game {
   }
   draw() {
     this.background.draw();
+    this.encounter.draw();
     this.player.draw();
   }
 }
