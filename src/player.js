@@ -18,6 +18,7 @@ class Player {
     //this col or this row is currently defined by pixel count, so if we divide that by 75 that will give us the coordinates according to the map ive drawn.
     // now we can check to see if the players x and y is the same as the x and y of the deadzones, just have to iterate through the elements of the array
     //will have to check for each elements[i].x and [i].y as these are the two values of each element we want to check against. for if loop should work!?
+
     console.log(this.col, this.row);
     this.y = this.col / 75;
     this.x = this.row / 75;
@@ -36,6 +37,9 @@ class Player {
         x === game.encounter.arrayOfQuestions[i].x &&
         y === game.encounter.arrayOfQuestions[i].y
       ) {
+        /*this relates to the function in the question page that will hopefully open the text window and should
+          change the the correct element of the arrayOfQuestions*/
+        game.encounter.openTextWindow(game.encounter.arrayOfQuestions[i]);
         console.log("YOU HAVE FOUND A QUESTION!!!!!");
       }
     }

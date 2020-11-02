@@ -4,13 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-   
+    <link rel="stylesheet" href="css/style.css" />
     <title>Document</title>
     
   </head>
   <body>
     <h1>Not Quite Pokemon</h1>
     <div id="canvas"></div>
+
+    <div id="text-window">
+        <h1 id="found">A wild HTML has appeared!</h1>
+        <h2 id="question">What does HTML stand for?</h2>
+        <ol class="list">
+          <li><button id="buttonA">A</button><span class="answer" id="answerA">Hyper Text Markup Langauge</span></li>
+          <li><button id="buttonB">B</button><span class="answer" id="answerB">Hyper type mess linguistics</span></li>
+          <li><button id="buttonC">C</button><span class="answer" id="answerC">How to make linguini</span></li>
+          <li><button id="buttonD">D</button><span class="answer" id="answerD">Have time make later</span></li>
+      </ol>
+    </div> 
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
     <script src="src/constants.js"></script>
     <script src="src/questions.js"></script>
