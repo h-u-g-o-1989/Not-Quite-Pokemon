@@ -23,11 +23,29 @@ class Player {
     this.x = this.row / 75;
     console.log("this is the starting x and y", this.x, this.y);
   }
+
+  /* as i will be adding lots of collectables to be found i want to wright a function that checks if the player 
+  is on the same square as a collectable, console.log found if we are on the same square. we have the x and y for the 
+  collectables so will need to pass those in as parameters then just run this function in each move to check for collectables*/
+
+  /*if NEXT CODE DOESNT WORK ctrl Z until here*/
+
+  checkCellForCollectables(x, y) {
+    for (let i = 0; i < game.encounter.arrayOfQuestions.length; i++) {
+      if (
+        x === game.encounter.arrayOfQuestions[i].x &&
+        y === game.encounter.arrayOfQuestions[i].y
+      ) {
+        console.log("YOU HAVE FOUND A QUESTION!!!!!");
+      }
+    }
+  }
+
   moveUp() {
-    let y = (this.col - CELL_SIZE) / 75;
+    let y = (this.col - 75) / 75;
     let x = this.row / 75;
     console.log("this is where we are moving into", x, y);
-    if (this.col <= 0 + CELL_SIZE) {
+    if (this.col <= 0 + 75) {
       return;
     }
     for (let i = 0; i < this.deadZones.length; i++) {
@@ -36,12 +54,13 @@ class Player {
         return;
       }
     }
-    this.col = this.col - CELL_SIZE;
+    this.col = this.col - 75;
+    this.checkCellForCollectables(x, y);
     console.log("this is our new col and row", this.col, this.row);
   }
 
   moveDown() {
-    let y = (this.col + CELL_SIZE) / 75;
+    let y = (this.col + 75) / 75;
     let x = this.row / 75;
     console.log("this is where we are moving into", x, y);
     if (this.col >= HEIGHT - this.height * 2) {
@@ -53,13 +72,14 @@ class Player {
         return;
       }
     }
-    this.col = this.col + CELL_SIZE;
+    this.col = this.col + 75;
+    this.checkCellForCollectables(x, y);
     console.log("this is our new col and row", this.col, this.row);
   }
 
   moveRight() {
     let y = this.col / 75;
-    let x = (this.row + CELL_SIZE) / 75;
+    let x = (this.row + 75) / 75;
     console.log("this is where we are moving into", x, y);
     if (this.row >= WIDTH - this.width * 2) {
       return;
@@ -70,15 +90,16 @@ class Player {
         return;
       }
     }
-    this.row = this.row + CELL_SIZE;
+    this.row = this.row + 75;
+    this.checkCellForCollectables(x, y);
     console.log("this is our new col and row", this.col, this.row);
   }
 
   moveLeft() {
     let y = this.col / 75;
-    let x = (this.row - CELL_SIZE) / 75;
+    let x = (this.row - 75) / 75;
     console.log("this is where we are moving into", x, y);
-    if (this.row <= 0 + CELL_SIZE) {
+    if (this.row <= 0 + 75) {
       return;
     }
     for (let i = 0; i < this.deadZones.length; i++) {
@@ -87,7 +108,8 @@ class Player {
         return;
       }
     }
-    this.row = this.row - CELL_SIZE;
+    this.row = this.row - 75;
+    this.checkCellForCollectables(x, y);
     console.log("this is our new col and row", this.col, this.row);
   }
 
