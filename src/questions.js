@@ -66,30 +66,34 @@ class Collectables {
   pictures opacity when practicing, this function will then get called where the console log is declaring i have found a collectable,
   */
   openTextWindow(encounter) {
+    this.window = true;
     this.found.innerHTML = encounter.question.found;
     this.question.innerHTML = encounter.question.question;
     this.answerA.innerHTML = encounter.question.answerA;
     this.answerB.innerHTML = encounter.question.answerB;
     this.answerC.innerHTML = encounter.question.answerC;
     this.answerD.innerHTML = encounter.question.answerD;
-
     this.textWindow.style.display = "flex";
     noLoop();
 
     buttonA.onclick = () => {
       this.textWindow.style.display = "none";
+      this.window = false;
       loop();
     };
     buttonB.onclick = () => {
       this.textWindow.style.display = "none";
+      this.window = false;
       loop();
     };
     buttonC.onclick = () => {
       this.textWindow.style.display = "none";
+      this.window = false;
       loop();
     };
     buttonD.onclick = () => {
       this.textWindow.style.display = "none";
+      this.window = false;
       loop();
     };
     /*want to call no loop here and then once button has been clicked 

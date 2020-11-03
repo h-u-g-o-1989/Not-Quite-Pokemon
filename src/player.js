@@ -52,6 +52,9 @@ class Player {
     if (this.col <= 0 + 75) {
       return;
     }
+    if (game.encounter.window) {
+      return;
+    }
     for (let i = 0; i < this.deadZones.length; i++) {
       if (x === this.deadZones[i].x && y === this.deadZones[i].y) {
         console.log("you cant move here this is a dead zone");
@@ -68,6 +71,9 @@ class Player {
     let x = this.row / 75;
     console.log("this is where we are moving into", x, y);
     if (this.col >= HEIGHT - this.height * 2) {
+      return;
+    }
+    if (game.encounter.window) {
       return;
     }
     for (let i = 0; i < this.deadZones.length; i++) {
@@ -88,6 +94,9 @@ class Player {
     if (this.row >= WIDTH - this.width * 2) {
       return;
     }
+    if (game.encounter.window) {
+      return;
+    }
     for (let i = 0; i < this.deadZones.length; i++) {
       if (x === this.deadZones[i].x && y === this.deadZones[i].y) {
         console.log("you cant move here this is a dead zone");
@@ -104,6 +113,9 @@ class Player {
     let x = (this.row - 75) / 75;
     console.log("this is where we are moving into", x, y);
     if (this.row <= 0 + 75) {
+      return;
+    }
+    if (game.encounter.window) {
       return;
     }
     for (let i = 0; i < this.deadZones.length; i++) {
