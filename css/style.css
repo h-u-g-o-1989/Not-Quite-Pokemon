@@ -1,11 +1,15 @@
 body {
+  border: 2px solid red;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 1000px;
+  height: 1000px;
+  margin: 50px auto;
 }
 #text-window {
-  z-index: 1;
+  z-index: 2;
   margin-top: -300px;
   width: 800px;
   height: 300px;
@@ -15,6 +19,20 @@ body {
   display: none;
   flex-direction: column;
   padding: 20px;
+}
+#lost {
+  z-index: 1;
+  margin-top: -870px;
+  width: 800px;
+  height: 800px;
+  border: 2px solid black;
+  border-radius: 3%;
+  background-color: lightgray;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
 }
 
 h1 {
@@ -34,4 +52,24 @@ li {
   display: flex;
   text-align: left;
   margin: 10px;
+}
+#livesBoard {
+  z-index: 1;
+  border: 2px solid blue;
+}
+#topBoard {
+  width: 600px;
+  height: 40px;
+  border: 2px solid yellow;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+#fence {
+  display: flex;
+  margin-top: -75px;
+  z-index: 1;
+  background-image: url(../assets/IMG_0784.PNG);
+  width: 150px;
+  height: 75px;
 }

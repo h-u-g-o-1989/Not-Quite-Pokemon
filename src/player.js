@@ -9,10 +9,23 @@ class Player {
       { x: 5, y: 1 },
       { x: 6, y: 1 },
       { x: 7, y: 1 },
+      { x: 3, y: 2 },
       { x: 4, y: 2 },
       { x: 5, y: 2 },
       { x: 6, y: 2 },
       { x: 7, y: 2 },
+      { x: 2, y: 4 },
+      { x: 8, y: 8 },
+      { x: 1, y: 11 },
+      { x: 2, y: 11 },
+      { x: 3, y: 11 },
+      { x: 4, y: 11 },
+      { x: 5, y: 11 },
+      { x: 6, y: 11 },
+      { x: 7, y: 11 },
+      { x: 8, y: 11 },
+      { x: 9, y: 11 },
+      { x: 10, y: 11 },
     ];
     //to get our grid reference we need to calculate it, we know that one cell is 75px that we dvide the canvas by the number of grids (12 in this case)
     //this col or this row is currently defined by pixel count, so if we divide that by 75 that will give us the coordinates according to the map ive drawn.
@@ -70,7 +83,7 @@ class Player {
     let y = (this.col + 75) / 75;
     let x = this.row / 75;
     console.log("this is where we are moving into", x, y);
-    if (this.col >= HEIGHT - this.height * 2) {
+    if (this.col >= HEIGHT) {
       return;
     }
     if (game.encounter.window) {
@@ -130,6 +143,6 @@ class Player {
   }
 
   draw() {
-    rect(this.row, this.col, this.width, this.height);
+    image(playerPic, this.row, this.col, this.width, this.height);
   }
 }

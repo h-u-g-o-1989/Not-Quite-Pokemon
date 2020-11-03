@@ -10,7 +10,12 @@
   </head>
   <body>
     <h1>Not Quite Pokemon</h1>
+    <div id="topBoard">
+    <div id="scoreBoard">score<span id="theScore">0</span></div>
+    <div id="livesBoard">Lives<span id="livesLeft">1</span></div>
+    </div>
     <div id="canvas"></div>
+
 
     <div id="text-window">
         <h1 id="found">A wild HTML has appeared!</h1>
@@ -22,6 +27,13 @@
           <li><button id="buttonD">D</button><span class="answer" id="answerD">Have time make later</span></li>
       </ol>
     </div> 
+    <div id="fence"></div>
+    <div id="lost">
+        <h1>Uh Oh!!</h1>
+        <h2>You have lost</h2>
+        <div ><button id="restartButton">Restart Game</button></div>
+    </div>
+    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
     <script src="src/constants.js"></script>

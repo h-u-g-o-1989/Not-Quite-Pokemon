@@ -1,7 +1,8 @@
 let game;
 
 function preload() {
-  bkImage = loadImage("./assets/IMG_0771.PNG");
+  bkImage = loadImage("./assets/IMG_0788.PNG");
+  playerPic = loadImage("./assets/IMG_0785.PNG");
 }
 
 function setup() {

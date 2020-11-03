@@ -3,11 +3,12 @@ class Game {
     this.initialiseGame();
   }
   initialiseGame() {
-    this.score = 0;
-    this.lives = 3;
     this.background = new Background(bkImage);
+    console.log("drawing background");
     this.encounter = new Collectables(theQuestions);
+    console.log("drawing encounters");
     this.player = new Player(CELL_SIZE * 3, CELL_SIZE * 5);
+    console.log("drawing player");
   }
   drawGrid() {
     for (let i = 0; i <= WIDTH; i += CELL_SIZE) {
