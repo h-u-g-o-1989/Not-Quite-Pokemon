@@ -20,7 +20,35 @@ body {
   flex-direction: column;
   padding: 20px;
 }
+#start {
+  z-index: 1;
+  margin-top: -870px;
+  width: 800px;
+  height: 800px;
+  border: 2px solid black;
+  border-radius: 3%;
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+}
 #lost {
+  z-index: 1;
+  margin-top: -870px;
+  width: 800px;
+  height: 800px;
+  border: 2px solid black;
+  border-radius: 3%;
+  background-color: lightgray;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+}
+#finished {
   z-index: 1;
   margin-top: -870px;
   width: 800px;
@@ -71,5 +99,15 @@ li {
   z-index: 1;
   background-image: url(../assets/IMG_0784.PNG);
   width: 150px;
+  height: 75px;
+}
+#fence2 {
+  display: none;
+
+  margin-right: 690px;
+  margin-top: -75px;
+  z-index: 1;
+  background-image: url(../assets/IMG_0793.PNG);
+  width: 75px;
   height: 75px;
 }

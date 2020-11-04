@@ -30,7 +30,7 @@ the encounter answer, and individually set buttonA's second parameter to "A" and
 so that they match with the correctAnswer string, that way if the string from the button is the same
 as the string from the encounter object then they got the answer right else they got it wrong.*/
 
-let theQuestions = [
+let theQuestionsLevelOne = [
   new Encounter(8, 5, {
     found: "youve found the first question",
     question: "this is question 1?",
@@ -50,6 +50,46 @@ let theQuestions = [
     correctAnswer: "B",
   }),
 ];
+let theQuestionsLevelTwo = [
+  new Encounter(7, 5, {
+    found: "youve found the 3rd question",
+    question: "this is question 1?",
+    answerA: "Hyper Text Markup Langauge",
+    answerB: "Hyper type mess linguistics",
+    answerC: "How to make linguini",
+    answerD: "Have time make later",
+    correctAnswer: "A",
+  }),
+  new Encounter(3, 9, {
+    found: "youve found the 4th question",
+    question: "this is question 2?",
+    answerA: "ANSWER ONE",
+    answerB: "ANSWER TWO",
+    answerC: "ANSWER 3",
+    answerD: "ANSWER 4",
+    correctAnswer: "B",
+  }),
+];
+let theQuestionsLevelThree = [
+  new Encounter(10, 5, {
+    found: "youve found the 5th question",
+    question: "this is question 1?",
+    answerA: "Hyper Text Markup Langauge",
+    answerB: "Hyper type mess linguistics",
+    answerC: "How to make linguini",
+    answerD: "Have time make later",
+    correctAnswer: "A",
+  }),
+  new Encounter(2, 10, {
+    found: "youve found the 6th question",
+    question: "this is question 2?",
+    answerA: "ANSWER ONE",
+    answerB: "ANSWER TWO",
+    answerC: "ANSWER 3",
+    answerD: "ANSWER 4",
+    correctAnswer: "B",
+  }),
+];
 
 /* now i could create a second class in which the questions can be passed into, this now needs to be initialised on 
 the game page, so i change this.encounter to = the collectables class and pass in the parameter theQuestions
@@ -57,12 +97,16 @@ then we need to loop through the array of questions so we can draw each one of t
 
 class Collectables {
   constructor(theQuestions) {
-    this.score = 0;
+    // this.score = 0;
     this.lives = 1;
     this.numberOfQuestions = 2;
     this.fence = document.getElementById("fence");
-    this.scoreCount = document.getElementById("theScore");
-    this.livesLeft = document.getElementById("livesLeft");
+    this.fence2 = document.getElementById("fence2");
+    this.finished = document.getElementById("finished");
+    this.finalScore = document.getElementById("theFinalScore");
+    this.start = document.getElementById("start");
+    //this.scoreCount = document.getElementById("theScore");
+    //this.livesLeft = document.getElementById("livesLeft");
     this.textWindow = document.getElementById("text-window");
     this.gameLost = document.getElementById("lost");
     this.found = document.getElementById("found");
@@ -76,7 +120,9 @@ class Collectables {
     this.buttonC = document.getElementById("buttonC");
     this.buttonD = document.getElementById("buttonD");
     this.restartButton = document.getElementById("restartButton");
-    this.arrayOfQuestions = theQuestions;
+    this.restartGameButton = document.getElementById("restartGame");
+
+    this.arrayOfQuestions = [...theQuestions]; //changed it so we delete from a copy of the array then when we reload the game we start with a new copy.
   }
   draw() {
     for (let i = 0; i < this.arrayOfQuestions.length; i++) {
@@ -137,15 +183,10 @@ class Collectables {
   checkForCorrectAnswer(encounter, answer) {
     if (answer === encounter.question.correctAnswer) {
       this.numberOfQuestions--;
-      this.score++;
-      this.scoreCount.innerHTML = this.score;
+      game.addScore();
     } else {
-      //   for (let i = 0; i < this.arrayOfQuestions.length; i++) {
-      //     this.arrayOfQuestions.splice(1);
-      //   }
       this.numberOfQuestions--;
-      this.lives--;
-      this.livesLeft.innerHTML = this.lives;
+      game.lowerLives();
     }
     let thisQuestionIndex = this.arrayOfQuestions.indexOf(encounter);
     this.arrayOfQuestions.splice(thisQuestionIndex, 1);
@@ -155,7 +196,7 @@ class Collectables {
     canvas, have this level on top half and then bottom half would be next level, would have to be 
     900px wide and 1800px tall, so would then have to change grid so its width is by 12 but height is by
     24 so we can keep the cell sizes the same.*/
-    if (this.numberOfQuestions === 0) {
+    if (this.numberOfQuestions === 0 && game.levelCount === 0) {
       this.fence.style.display = "none";
       game.player.deadZones = [
         { x: 4, y: 1 },
@@ -178,14 +219,61 @@ class Collectables {
         { x: 9, y: 11 },
         { x: 10, y: 11 },
       ];
+
+      //game.initialiseGame();
     }
-    if (this.lives === 0) {
+    if (game.levelCount === 1 && this.numberOfQuestions === 0) {
+      this.fence2.style.display = "none";
+      game.player.deadZones = [
+        { x: 3, y: 0 },
+        { x: 4, y: 0 },
+        { x: 4, y: 1 },
+        { x: 4, y: 3 },
+        { x: 7, y: 2 },
+        { x: 8, y: 2 },
+        { x: 7, y: 3 },
+        { x: 8, y: 3 },
+        { x: 6, y: 6 },
+        { x: 8, y: 8 },
+        { x: 2, y: 4 },
+        { x: 2, y: 11 },
+        { x: 3, y: 11 },
+        { x: 4, y: 11 },
+        { x: 5, y: 11 },
+        { x: 6, y: 11 },
+        { x: 7, y: 11 },
+        { x: 8, y: 11 },
+        { x: 9, y: 11 },
+        { x: 10, y: 11 },
+      ];
+    }
+    if (game.levelCount === 2 && this.numberOfQuestions === 0) {
+      this.finalScore.innerHTML = game.score;
+      this.finished.style.display = "flex";
+    }
+    if (game.lives === 0) {
       this.gameLost.style.display = "flex";
     }
-    //this is not working correctly and will need to be fixed tomorrow!
+
     this.restartButton.onclick = () => {
+      game.resetScore();
+      game.resetLives();
+      game.resetLevel();
       game.initialiseGame();
+      this.fence.style.display = "flex";
       this.gameLost.style.display = "none";
+      this.start.style.display = "flex";
+      this.fence2.style.display = "none";
+    };
+    this.restartGameButton.onclick = () => {
+      game.resetScore();
+      game.resetLives();
+      game.resetLevel();
+      game.initialiseGame();
+      this.fence.style.display = "flex";
+      this.fence2.style.display = "none";
+      this.finished.style.display = "none";
+      this.start.style.display = "flex";
     };
   }
   /* next thing is to write the html questions and answers with buttons, then need to use the document.getElementById to 

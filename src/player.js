@@ -1,32 +1,97 @@
+let deadZones = [
+  { x: 1, y: 0 },
+  { x: 2, y: 0 },
+  { x: 3, y: 0 },
+  { x: 4, y: 0 },
+  { x: 5, y: 0 },
+  { x: 6, y: 0 },
+  { x: 7, y: 0 },
+  { x: 8, y: 0 },
+  { x: 9, y: 0 },
+  { x: 10, y: 0 },
+  //
+  { x: 4, y: 1 },
+  { x: 5, y: 1 },
+  { x: 6, y: 1 },
+  { x: 7, y: 1 },
+  { x: 3, y: 2 },
+  { x: 4, y: 2 },
+  { x: 5, y: 2 },
+  { x: 6, y: 2 },
+  { x: 7, y: 2 },
+  { x: 2, y: 4 },
+  { x: 8, y: 8 },
+  { x: 1, y: 11 },
+  { x: 2, y: 11 },
+  { x: 3, y: 11 },
+  { x: 4, y: 11 },
+  { x: 5, y: 11 },
+  { x: 6, y: 11 },
+  { x: 7, y: 11 },
+  { x: 8, y: 11 },
+  { x: 9, y: 11 },
+  { x: 10, y: 11 },
+];
+let deadZonesLevelTwo = [
+  { x: 3, y: 0 },
+  { x: 4, y: 0 },
+  { x: 4, y: 1 },
+  { x: 4, y: 3 },
+  { x: 7, y: 2 },
+  { x: 8, y: 2 },
+  { x: 7, y: 3 },
+  { x: 8, y: 3 },
+  { x: 6, y: 6 },
+  { x: 8, y: 8 },
+  { x: 2, y: 4 },
+  { x: 1, y: 11 },
+  { x: 2, y: 11 },
+  { x: 3, y: 11 },
+  { x: 4, y: 11 },
+  { x: 5, y: 11 },
+  { x: 6, y: 11 },
+  { x: 7, y: 11 },
+  { x: 8, y: 11 },
+  { x: 9, y: 11 },
+  { x: 10, y: 11 },
+];
+let deadZonesLevelThree = [
+  { x: 2, y: 0 },
+  { x: 3, y: 0 },
+  { x: 4, y: 0 },
+  { x: 5, y: 0 },
+  { x: 6, y: 0 },
+  { x: 7, y: 0 },
+  { x: 8, y: 0 },
+  { x: 9, y: 0 },
+  { x: 10, y: 0 },
+  { x: 7, y: 2 },
+  { x: 8, y: 2 },
+  { x: 7, y: 3 },
+  { x: 8, y: 3 },
+  { x: 6, y: 6 },
+  { x: 2, y: 4 },
+  { x: 8, y: 8 },
+  { x: 0, y: 11 },
+  { x: 1, y: 11 },
+  { x: 2, y: 11 },
+  { x: 3, y: 11 },
+  { x: 4, y: 11 },
+  { x: 5, y: 11 },
+  { x: 6, y: 11 },
+  { x: 7, y: 11 },
+  { x: 8, y: 11 },
+  { x: 9, y: 11 },
+  { x: 10, y: 11 },
+];
+
 class Player {
-  constructor(col, row) {
+  constructor(col, row, deadZones) {
     this.col = col;
     this.row = row;
     this.height = CELL_SIZE;
     this.width = CELL_SIZE;
-    this.deadZones = [
-      { x: 4, y: 1 },
-      { x: 5, y: 1 },
-      { x: 6, y: 1 },
-      { x: 7, y: 1 },
-      { x: 3, y: 2 },
-      { x: 4, y: 2 },
-      { x: 5, y: 2 },
-      { x: 6, y: 2 },
-      { x: 7, y: 2 },
-      { x: 2, y: 4 },
-      { x: 8, y: 8 },
-      { x: 1, y: 11 },
-      { x: 2, y: 11 },
-      { x: 3, y: 11 },
-      { x: 4, y: 11 },
-      { x: 5, y: 11 },
-      { x: 6, y: 11 },
-      { x: 7, y: 11 },
-      { x: 8, y: 11 },
-      { x: 9, y: 11 },
-      { x: 10, y: 11 },
-    ];
+    this.deadZones = deadZones;
     //to get our grid reference we need to calculate it, we know that one cell is 75px that we dvide the canvas by the number of grids (12 in this case)
     //this col or this row is currently defined by pixel count, so if we divide that by 75 that will give us the coordinates according to the map ive drawn.
     // now we can check to see if the players x and y is the same as the x and y of the deadzones, just have to iterate through the elements of the array
@@ -62,7 +127,7 @@ class Player {
     let y = (this.col - 75) / 75;
     let x = this.row / 75;
     console.log("this is where we are moving into", x, y);
-    if (this.col <= 0 + 75) {
+    if (this.col <= 0) {
       return;
     }
     if (game.encounter.window) {
@@ -98,6 +163,13 @@ class Player {
     this.col = this.col + 75;
     this.checkCellForCollectables(x, y);
     console.log("this is our new col and row", this.col, this.row);
+    if (this.col === 900) {
+      game.addLevel();
+      console.log(game.levelCount);
+
+      console.log("LOAD NEW LEVEL");
+      game.initialiseGame();
+    }
   }
 
   moveRight() {
