@@ -2,15 +2,30 @@ class Game {
   constructor() {
     this.levelCount = 0;
     this.score = 0;
-    this.scoreCount = document.getElementById("theScore");
+    this.roundScore = 0;
+    // this.scoreCount = document.getElementById("theScore");
     this.lives = 3;
-    this.livesLeft = document.getElementById("livesLeft");
+    // this.livesLeft = document.getElementById("livesLeft");
     this.initialiseGame();
     this.fence2 = document.getElementById("fence2");
     this.start = document.getElementById("start");
+    this.livesAndHealth = document.getElementById("topBoard");
     this.startButton = document.getElementById("startGame");
+    this.playButton = document.getElementById("buttonPlayMusic");
+    this.playButton.onclick = () => {
+      pokemonSong.play();
+      pokemonSong.volume = 0.01;
+    };
+    this.stopButton = document.getElementById("buttonStopMusic");
+    this.stopButton.onclick = () => {
+      pokemonSong.stop();
+    };
+    // this.pokemonSong = document.getElementById("pokemon");
     this.startButton.onclick = () => {
       this.start.style.display = "none";
+      this.livesAndHealth.style.zIndex = "1";
+      pokemonSong.play();
+      pokemonSong.volume = 0.01;
     };
   }
   initialiseGame() {
@@ -19,7 +34,14 @@ class Game {
       console.log("drawing background");
       this.encounter = new Collectables(theQuestionsLevelOne);
       console.log("drawing encounters");
-      this.player = new Player(CELL_SIZE * 3, CELL_SIZE * 5, deadZones);
+      this.pikachu = new Pikachu(CELL_SIZE * 3, CELL_SIZE * 6);
+      this.player = new Player(
+        CELL_SIZE * 3,
+        CELL_SIZE * 5,
+        deadZones,
+        this.pikachu
+      );
+
       console.log("drawing player");
     }
     if (this.levelCount === 1) {
@@ -28,19 +50,28 @@ class Game {
       console.log("drawing background");
       this.encounter = new Collectables(theQuestionsLevelTwo);
       console.log("drawing encounters");
-      this.player = new Player(CELL_SIZE * 0, CELL_SIZE * 5, deadZonesLevelTwo);
+      this.pikachu = new Pikachu(CELL_SIZE * 0, CELL_SIZE * 6);
+      this.player = new Player(
+        CELL_SIZE * 0,
+        CELL_SIZE * 5,
+        deadZonesLevelTwo,
+        this.pikachu
+      );
+
       console.log("drawing player");
     }
     if (this.levelCount === 2) {
       this.background = new Background(bkImage3);
       console.log("drawing background");
-      this.encounter = new Collectables(theQuestionsLevelThree);
+      this.encounter = new Collectables(theQuestionsLevelThree, this.pikachu);
       console.log("drawing encounters");
+      this.pikachu = new Pikachu(CELL_SIZE * 0, CELL_SIZE * 2);
       this.player = new Player(
         CELL_SIZE * 0,
         CELL_SIZE * 1,
         deadZonesLevelThree
       );
+
       console.log("drawing player");
     }
     //this.background2 = new BackgroundTwo(bkImage);
@@ -49,25 +80,30 @@ class Game {
   }
   addLevel() {
     this.levelCount++;
+    this.roundScore = 0;
+    game.encounter.newRound();
   }
   addScore() {
     this.score++;
-    this.scoreCount.innerHTML = this.score;
+    this.roundScore++;
+    // this.scoreCount.innerHTML = this.score;
   }
   resetScore() {
     this.score = 0;
-    this.scoreCount.innerHTML = this.score;
+    this.roundScore = 0;
+    // this.scoreCount.innerHTML = this.score;
   }
   lowerLives() {
     this.lives--;
-    this.livesLeft.innerHTML = this.lives;
+    // this.livesLeft.innerHTML = this.lives;
   }
   resetLives() {
     this.lives = 3;
-    this.livesLeft.innerHTML = this.lives;
+    // this.livesLeft.innerHTML = this.lives;
   }
   resetLevel() {
     this.levelCount = 0;
+    this.roundScore = 0;
   }
   drawGrid() {
     for (let i = 0; i <= WIDTH; i += CELL_SIZE) {
@@ -79,5 +115,6 @@ class Game {
     this.background.draw();
     this.encounter.draw();
     this.player.draw();
+    this.pikachu.draw();
   }
 }

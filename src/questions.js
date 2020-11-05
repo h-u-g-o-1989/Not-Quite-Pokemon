@@ -12,7 +12,7 @@ class Encounter {
   //     this.y = -100;
   // }
   draw() {
-    rect(this.x * 75, this.y * 75, CELL_SIZE, CELL_SIZE); // multiply the x and y by 75 to convert it to our coordinates on the grid
+    image(encounterPic, this.x * 75, this.y * 75, CELL_SIZE, CELL_SIZE); // multiply the x and y by 75 to convert it to our coordinates on the grid
   }
   //cant find a way to delete the encounters so
   //want a function that moves encounters off the map once they have been found, so it "clears" the map
@@ -97,16 +97,14 @@ then we need to loop through the array of questions so we can draw each one of t
 
 class Collectables {
   constructor(theQuestions) {
-    // this.score = 0;
     this.lives = 1;
     this.numberOfQuestions = 2;
     this.fence = document.getElementById("fence");
     this.fence2 = document.getElementById("fence2");
     this.finished = document.getElementById("finished");
     this.finalScore = document.getElementById("theFinalScore");
+    this.endScore = document.getElementById("theEndScore");
     this.start = document.getElementById("start");
-    //this.scoreCount = document.getElementById("theScore");
-    //this.livesLeft = document.getElementById("livesLeft");
     this.textWindow = document.getElementById("text-window");
     this.gameLost = document.getElementById("lost");
     this.found = document.getElementById("found");
@@ -119,6 +117,16 @@ class Collectables {
     this.buttonB = document.getElementById("buttonB");
     this.buttonC = document.getElementById("buttonC");
     this.buttonD = document.getElementById("buttonD");
+    this.pokeBall1 = document.getElementById("scoreCount1");
+    this.pokeBall2 = document.getElementById("scoreCount2");
+    this.pokeBall3 = document.getElementById("scoreCount3");
+    this.pokeBall4 = document.getElementById("scoreCount4");
+    this.pokeBall5 = document.getElementById("scoreCount5");
+    this.pokeBall6 = document.getElementById("scoreCount6");
+    this.pokeBall7 = document.getElementById("scoreCount7");
+    this.heart1 = document.getElementById("life1");
+    this.heart2 = document.getElementById("life2");
+    this.heart3 = document.getElementById("life3");
     this.restartButton = document.getElementById("restartButton");
     this.restartGameButton = document.getElementById("restartGame");
 
@@ -183,10 +191,42 @@ class Collectables {
   checkForCorrectAnswer(encounter, answer) {
     if (answer === encounter.question.correctAnswer) {
       this.numberOfQuestions--;
+      this.roundScore++;
       game.addScore();
+      if (game.roundScore === 1) {
+        this.pokeBall1.style.opacity = "100";
+      }
+      if (game.roundScore === 2) {
+        this.pokeBall2.style.opacity = "100";
+      }
+      if (game.roundScore === 3) {
+        this.pokeBall3.style.opacity = "100";
+      }
+      if (game.roundScore === 4) {
+        this.pokeBall4.style.opacity = "100";
+      }
+      if (game.roundScore === 5) {
+        this.pokeBall5.style.opacity = "100";
+      }
+      if (game.roundScore === 6) {
+        this.pokeBall6.style.opacity = "100";
+      }
+      if (game.roundScore === 7) {
+        this.pokeBall7.style.opacity = "100";
+      }
     } else {
       this.numberOfQuestions--;
+      this.roundScore--;
       game.lowerLives();
+      if (game.lives === 2) {
+        this.heart3.style.opacity = "20%";
+      }
+      if (game.lives === 1) {
+        this.heart2.style.opacity = "20%";
+      }
+      if (game.lives === 0) {
+        this.heart1.style.opacity = "20%";
+      }
     }
     let thisQuestionIndex = this.arrayOfQuestions.indexOf(encounter);
     this.arrayOfQuestions.splice(thisQuestionIndex, 1);
@@ -250,8 +290,11 @@ class Collectables {
     if (game.levelCount === 2 && this.numberOfQuestions === 0) {
       this.finalScore.innerHTML = game.score;
       this.finished.style.display = "flex";
+      pokemonSong.stop();
     }
     if (game.lives === 0) {
+      this.endScore.innerHTML = game.score;
+      pokemonSong.stop();
       this.gameLost.style.display = "flex";
     }
 
@@ -264,6 +307,9 @@ class Collectables {
       this.gameLost.style.display = "none";
       this.start.style.display = "flex";
       this.fence2.style.display = "none";
+      this.heart1.style.opacity = "100%";
+      this.heart2.style.opacity = "100%";
+      this.heart3.style.opacity = "100%";
     };
     this.restartGameButton.onclick = () => {
       game.resetScore();
@@ -275,6 +321,15 @@ class Collectables {
       this.finished.style.display = "none";
       this.start.style.display = "flex";
     };
+  }
+  newRound() {
+    this.pokeBall1.style.opacity = "50%";
+    this.pokeBall2.style.opacity = "50%";
+    this.pokeBall3.style.opacity = "50%";
+    this.pokeBall4.style.opacity = "50%";
+    this.pokeBall5.style.opacity = "50%";
+    this.pokeBall6.style.opacity = "50%";
+    this.pokeBall7.style.opacity = "50%";
   }
   /* next thing is to write the html questions and answers with buttons, then need to use the document.getElementById to 
 make the text window appear when we step on one of the collectables, we also then need to change the innerHTML to the relevant encounter*/

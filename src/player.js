@@ -86,17 +86,18 @@ let deadZonesLevelThree = [
 ];
 
 class Player {
-  constructor(col, row, deadZones) {
+  constructor(col, row, deadZones, pikachu) {
     this.col = col;
     this.row = row;
     this.height = CELL_SIZE;
     this.width = CELL_SIZE;
     this.deadZones = deadZones;
+    this.image = playerPicDown;
     //to get our grid reference we need to calculate it, we know that one cell is 75px that we dvide the canvas by the number of grids (12 in this case)
     //this col or this row is currently defined by pixel count, so if we divide that by 75 that will give us the coordinates according to the map ive drawn.
     // now we can check to see if the players x and y is the same as the x and y of the deadzones, just have to iterate through the elements of the array
     //will have to check for each elements[i].x and [i].y as these are the two values of each element we want to check against. for if loop should work!?
-
+    this.pikachu = pikachu;
     console.log(this.col, this.row);
     this.y = this.col / 75;
     this.x = this.row / 75;
@@ -124,6 +125,8 @@ class Player {
   }
 
   moveUp() {
+    let playerInitialY = this.col;
+    let playerInitialX = this.row;
     let y = (this.col - 75) / 75;
     let x = this.row / 75;
     console.log("this is where we are moving into", x, y);
@@ -140,11 +143,16 @@ class Player {
       }
     }
     this.col = this.col - 75;
+    this.pikachu.col = playerInitialY;
+    this.pikachu.row = playerInitialX;
+    this.image = playerPicUp;
     this.checkCellForCollectables(x, y);
     console.log("this is our new col and row", this.col, this.row);
   }
 
   moveDown() {
+    let playerInitialY = this.col;
+    let playerInitialX = this.row;
     let y = (this.col + 75) / 75;
     let x = this.row / 75;
     console.log("this is where we are moving into", x, y);
@@ -161,6 +169,9 @@ class Player {
       }
     }
     this.col = this.col + 75;
+    this.image = playerPicDown;
+    this.pikachu.col = playerInitialY;
+    this.pikachu.row = playerInitialX;
     this.checkCellForCollectables(x, y);
     console.log("this is our new col and row", this.col, this.row);
     if (this.col === 900) {
@@ -173,6 +184,8 @@ class Player {
   }
 
   moveRight() {
+    let playerInitialY = this.col;
+    let playerInitialX = this.row;
     let y = this.col / 75;
     let x = (this.row + 75) / 75;
     console.log("this is where we are moving into", x, y);
@@ -189,11 +202,16 @@ class Player {
       }
     }
     this.row = this.row + 75;
+    this.image = playerPicRight;
+    this.pikachu.col = playerInitialY;
+    this.pikachu.row = playerInitialX;
     this.checkCellForCollectables(x, y);
     console.log("this is our new col and row", this.col, this.row);
   }
 
   moveLeft() {
+    let playerInitialY = this.col;
+    let playerInitialX = this.row;
     let y = this.col / 75;
     let x = (this.row - 75) / 75;
     console.log("this is where we are moving into", x, y);
@@ -210,11 +228,26 @@ class Player {
       }
     }
     this.row = this.row - 75;
+    this.image = playerPicLeft;
+    this.pikachu.col = playerInitialY;
+    this.pikachu.row = playerInitialX;
     this.checkCellForCollectables(x, y);
     console.log("this is our new col and row", this.col, this.row);
   }
 
   draw() {
-    image(playerPic, this.row, this.col, this.width, this.height);
+    image(this.image, this.row, this.col, this.width, this.height);
+  }
+}
+class Pikachu {
+  constructor(col, row) {
+    this.col = col;
+    this.row = row;
+    this.height = CELL_SIZE;
+    this.width = CELL_SIZE;
+  }
+
+  draw() {
+    image(player2pic, this.row, this.col, this.width, this.height);
   }
 }

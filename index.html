@@ -5,15 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Document</title>
+    <link rel="stylesheet"
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">    <title>Document</title>
     
   </head>
   <body>
-    <h1>Not Quite Pokemon</h1>
+    <div>
+    <!-- <audio height="50" id="pokemon" preload="auto" width="300">
+      <source src="../sounds/Pokémon Theme (8 Bit Remix Cover Version) [Tribute to Pokémon] - 8 Bit Universe (128 kbps).mp3"type="audio/mpeg"></source>
+    </audio> -->
+    <!-- <button onclick="document.getElementById('myTune').play()">Play Music</button>
+    <button onclick="document.getElementById('myTune').pause()">Pause Music</button>
+    <button onclick="document.getElementById('myTune').pause(); document.getElementById('myTune').currentTime = 0;">Stop Music</button> -->
+  </div>
+   
     <div id="topBoard">
-    <div id="scoreBoard">score<span id="theScore">0</span></div>
-    <div id="livesBoard">Lives<span id="livesLeft">3</span></div>
+    <!-- <div id="scoreBoard">score<span id="theScore">0</span></div>
+    <div id="livesBoard">Lives<span id="livesLeft">3</span></div> -->
+    <div id="scoreBox">
+      <img id="scoreCount1" src="./assets/IMG_0756.PNG">
+      <img id="scoreCount2" src="./assets/IMG_0756.PNG">
+      <img id="scoreCount3" src="./assets/IMG_0756.PNG">
+      <img id="scoreCount4" src="./assets/IMG_0756.PNG">
+      <img id="scoreCount5" src="./assets/IMG_0756.PNG">
+      <img id="scoreCount6" src="./assets/IMG_0756.PNG">
+      <img id="scoreCount7" src="./assets/IMG_0756.PNG">
+   </div> 
+   <div id="lifeCount">
+    <img id="life1" src="./assets/IMG_0819.PNG">
+    <img id="life2" src="./assets/IMG_0819.PNG">
+    <img id="life3" src="./assets/IMG_0819.PNG">
+ </div> 
+ <div>
+   <button id="buttonPlayMusic">Play</button>
+   <button id="buttonStopMusic">Stop</button>
+
+ </div>
     </div>
+
     <div id="canvas"></div>
 
 
@@ -31,8 +60,21 @@
     <div id="fence2"></div>
 
     <div id="start">
-      <h1>Welcome to Not Quite Pokemon</h1>
-      <h2>the rules and controls</h2>
+      <h1 id="welcome">Welcome to Not Quite Pokemon</h1>
+      <h2 id="rules">the rules and controls
+        <br>
+        explore the map and 
+        <br>
+        find the questions!
+        <br>
+        points scored for 
+        <br>
+        correct answers, lives
+        <br>
+        lost if wrong. 
+        <br>
+        Move using the WASD keys.
+      </h2>
       <div ><button id="startGame">Start Game</button></div>
   </div>
  
@@ -40,18 +82,21 @@
     <div id="lost">
         <h1>Uh Oh!!</h1>
         <h2>You have lost</h2>
+        <p>your final score is:<span id="theEndScore">0</span></p>
         <div ><button id="restartButton">Restart Game</button></div>
     </div>
 
     <div id="finished">
       <h1> WELL DONE</h1>
-      <h2>YOU HAVE FINIHED</h2>
+      <h2>YOU HAVE FINISHED</h2>
       <p>your final score is:<span id="theFinalScore">0</span></p>
       <div ><button id="restartGame">Restart Game</button></div>
   </div>
-
+<div id="gameboy"> 
+</div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.js"></script>
     <script src="src/constants.js"></script>
     <script src="src/questions.js"></script>
     <script src="src/player.js"></script>

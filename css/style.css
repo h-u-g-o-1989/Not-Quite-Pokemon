@@ -1,20 +1,35 @@
 body {
-  border: 2px solid red;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Press Start 2P", cursive;
   display: flex;
+
   flex-direction: column;
   align-items: center;
-  width: 1000px;
-  height: 1000px;
+  width: 1200px;
+  height: 1800px;
   margin: 50px auto;
+}
+#myTune {
+  display: flex;
+  flex-direction: row;
+}
+#gameboy {
+  display: flex;
+  z-index: -1;
+  margin-top: -1050px;
+  width: 1200px;
+  height: 1900px;
+  background-image: url(../assets/IMG_0817.PNG);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 #text-window {
   z-index: 2;
-  margin-top: -300px;
+  margin-top: 600px;
   width: 800px;
   height: 300px;
-  border: 2px solid black;
+  border: 5px solid black;
   border-radius: 3%;
+  position: absolute;
   background-color: lightgray;
   display: none;
   flex-direction: column;
@@ -22,9 +37,11 @@ body {
 }
 #start {
   z-index: 1;
-  margin-top: -870px;
-  width: 800px;
-  height: 800px;
+  background-image: url(../assets/IMG_0813.PNG);
+  background-size: contain;
+  margin-top: -910px;
+  width: 900px;
+  height: 900px;
   border: 2px solid black;
   border-radius: 3%;
   background-color: lightgray;
@@ -34,11 +51,24 @@ body {
   padding: 20px;
   text-align: center;
 }
+#welcome {
+  padding: 40px;
+  margin-top: 100px;
+}
+#rules {
+  text-align: left;
+}
+#startGame {
+  width: 100px;
+  height: 100px;
+}
 #lost {
   z-index: 1;
-  margin-top: -870px;
-  width: 800px;
-  height: 800px;
+  background-image: url(../assets/IMG_0814.PNG);
+  background-size: contain;
+  margin-top: -910px;
+  width: 900px;
+  height: 900px;
   border: 2px solid black;
   border-radius: 3%;
   background-color: lightgray;
@@ -50,9 +80,11 @@ body {
 }
 #finished {
   z-index: 1;
-  margin-top: -870px;
-  width: 800px;
-  height: 800px;
+  background-image: url(../assets/IMG_0815.PNG);
+  background-size: contain;
+  margin-top: -910px;
+  width: 900px;
+  height: 900px;
   border: 2px solid black;
   border-radius: 3%;
   background-color: lightgray;
@@ -86,9 +118,9 @@ li {
   border: 2px solid blue;
 }
 #topBoard {
-  width: 600px;
-  height: 40px;
-  border: 2px solid yellow;
+  width: 800px;
+  z-index: -1;
+  height: 60px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -110,4 +142,44 @@ li {
   background-image: url(../assets/IMG_0793.PNG);
   width: 75px;
   height: 75px;
+}
+#scoreCount1 {
+  width: 50px;
+  opacity: 50%;
+}
+#scoreCount2 {
+  width: 50px;
+  opacity: 50%;
+}
+#scoreCount3 {
+  width: 50px;
+  opacity: 50%;
+}
+#scoreCount4 {
+  width: 50px;
+  opacity: 50%;
+}
+#scoreCount5 {
+  width: 50px;
+  opacity: 50%;
+}
+#scoreCount6 {
+  width: 50px;
+  opacity: 50%;
+}
+#scoreCount7 {
+  width: 50px;
+  opacity: 50%;
+}
+#life1 {
+  width: 50px;
+  opacity: 100%;
+}
+#life2 {
+  width: 50px;
+  opacity: 100%;
+}
+#life3 {
+  width: 50px;
+  opacity: 100%;
 }

@@ -6,5 +6,12 @@ const CELL_SIZE = WIDTH / GRID_SIZE; // cell size is therefore 75px (900/12)
 let bkImage;
 let bkImage2;
 let bkImage3;
+let player2pic;
+let encounterPic;
+let playerPicDown;
+let playerPicUp;
+let playerPicRight;
+let playerPicLeft;
 
-let playerPic;
+const playButton = document.getElementById("buttonPlayMusic");
+const stopButton = document.getElementById("buttonStopMusic");

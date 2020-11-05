@@ -4,7 +4,19 @@ function preload() {
   bkImage = loadImage("./assets/IMG_0788.PNG");
   bkImage2 = loadImage("./assets/IMG_0790.PNG");
   bkImage3 = loadImage("./assets/IMG_0795.JPG");
-  playerPic = loadImage("./assets/IMG_0785.PNG");
+  player2pic = loadImage("./assets/IMG_0819.PNG");
+  encounterPic = loadImage("./assets/IMG_0768.PNG");
+  playerPicDown = loadImage("./assets/IMG_0785.PNG");
+  playerPicUp = loadImage("./assets/IMG_0799.PNG");
+  playerPicRight = loadImage("./assets/IMG_0802.PNG");
+  playerPicLeft = loadImage("./assets/IMG_0801.PNG");
+  pokemonSong = loadSound(
+    "../sounds/Pokémon Theme (8 Bit Remix Cover Version) [Tribute to Pokémon] - 8 Bit Universe (128 kbps).mp3"
+  );
+  westernSong = loadSound(
+    "../sounds/{8 BIT} The Good the Bad and the Ugly Theme (128 kbps).mp3"
+  );
+  thronesSong = loadSound("../sounds/Game of Thrones 8-bit (128 kbps).mp3");
 }
 
 function setup() {
