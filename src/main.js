@@ -4,6 +4,7 @@ function preload() {
   bkImage = loadImage("./assets/IMG_0788.PNG");
   bkImage2 = loadImage("./assets/IMG_0790.PNG");
   bkImage3 = loadImage("./assets/IMG_0795.JPG");
+  bkImage4 = loadImage("../assets/IMG_0828.PNG");
   player2pic = loadImage("./assets/IMG_0819.PNG");
   encounterPic = loadImage("./assets/IMG_0768.PNG");
   playerPicDown = loadImage("./assets/IMG_0785.PNG");

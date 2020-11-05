@@ -122,7 +122,9 @@ class Collectables {
     this.fence = document.getElementById("fence");
     this.fence2 = document.getElementById("fence2");
     this.finished = document.getElementById("finished");
+    this.finishedSecret = document.getElementById("finishedSecret");
     this.finalScore = document.getElementById("theFinalScore");
+    this.finalScoreBonus = document.getElementById("theFinalScoreBonus");
     this.endScore = document.getElementById("theEndScore");
     this.start = document.getElementById("start");
     this.textWindow = document.getElementById("text-window");
@@ -149,6 +151,7 @@ class Collectables {
     this.heart3 = document.getElementById("life3");
     this.restartButton = document.getElementById("restartButton");
     this.restartGameButton = document.getElementById("restartGame");
+    this.restartGameButtonBonus = document.getElementById("restartGameBonus");
     this.livesAndHealth = document.getElementById("topBoard");
 
     this.arrayOfQuestions = [...theQuestions]; //changed it so we delete from a copy of the array then when we reload the game we start with a new copy.
@@ -280,8 +283,6 @@ class Collectables {
         { x: 9, y: 11 },
         { x: 10, y: 11 },
       ];
-
-      //game.initialiseGame();
     }
     if (game.levelCount === 1 && this.numberOfQuestions === 0) {
       this.fence2.style.display = "none";
@@ -315,8 +316,7 @@ class Collectables {
     ) {
       this.finished.style.display = "none";
       game.secretLevel();
-      //game.addLevel();
-      //game.initialiseGame();
+      this.numberOfQuestions = 2;
     } else if (
       game.score <= 5 &&
       game.levelCount === 2 &&
@@ -327,14 +327,15 @@ class Collectables {
     }
 
     if (game.levelCount === 3 && this.numberOfQuestions === 0) {
-      // this.finalScore.innerHTML = game.score;
-      // this.finished.style.display = "flex";
+      this.finalScoreBonus.innerHTML = game.score;
+      console.log("this is the questions number ", this.numberOfQuestions);
+      this.finishedSecret.style.display = "flex";
     }
     if (game.lives === 0) {
       this.endScore.innerHTML = game.score;
-      if (game.levelCount === 0) {
-        pokemonSong.stop();
-      }
+      // if (game.levelCount === 0) {
+      //   pokemonSong.stop();
+      // }
 
       this.gameLost.style.display = "flex";
     }
@@ -386,6 +387,32 @@ class Collectables {
       this.fence.style.display = "flex";
       this.fence2.style.display = "none";
       this.finished.style.display = "none";
+      this.start.style.display = "flex";
+      this.heart1.style.opacity = "100%";
+      this.heart2.style.opacity = "100%";
+      this.heart3.style.opacity = "100%";
+      this.livesAndHealth.style.zIndex = "-1";
+    };
+    this.restartGameButtonBonus.onclick = () => {
+      if (game.levelCount === 0) {
+        pokemonSong.stop();
+      }
+      if (game.levelCount === 1) {
+        westernSong.stop();
+      }
+      if (game.levelCount === 2) {
+        thronesSong.stop();
+      }
+      if (game.levelCount === 3) {
+        breakingBits.stop();
+      }
+      game.resetScore();
+      game.resetLives();
+      game.resetLevel();
+      game.initialiseGame();
+      this.fence.style.display = "flex";
+      this.fence2.style.display = "none";
+      this.finishedSecret.style.display = "none";
       this.start.style.display = "flex";
       this.heart1.style.opacity = "100%";
       this.heart2.style.opacity = "100%";

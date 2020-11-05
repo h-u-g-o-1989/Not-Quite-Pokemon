@@ -110,7 +110,7 @@ class Game {
       this.stopButton.onclick = () => {
         breakingBits.stop();
       };
-      this.background = new Background(bkImage);
+      this.background = new Background(bkImage4);
       console.log("drawing background");
       this.encounter = new Collectables(theQuestionsLevelFour);
       console.log("drawing encounters");
@@ -118,7 +118,7 @@ class Game {
       this.player = new Player(
         CELL_SIZE * 3,
         CELL_SIZE * 5,
-        deadZones,
+        deadZonesLevelFour,
         this.pikachu
       );
     }
@@ -155,6 +155,8 @@ class Game {
   }
   secretLevel() {
     this.levelCount = 3;
+    this.roundScore = 0;
+    game.encounter.newRound();
     game.initialiseGame();
   }
   drawGrid() {

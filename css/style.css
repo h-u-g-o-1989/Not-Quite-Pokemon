@@ -97,6 +97,22 @@ body {
   padding: 20px;
   text-align: center;
 }
+#finishedSecret {
+  z-index: 1;
+  background-image: url(../assets/IMG_0815.PNG);
+  background-size: contain;
+  margin-top: -910px;
+  width: 900px;
+  height: 900px;
+  border: 2px solid black;
+  border-radius: 3%;
+  background-color: lightgray;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+}
 button {
   font-family: "Press Start 2P", cursive;
 }

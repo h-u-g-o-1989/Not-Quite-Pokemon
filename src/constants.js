@@ -6,6 +6,7 @@ const CELL_SIZE = WIDTH / GRID_SIZE; // cell size is therefore 75px (900/12)
 let bkImage;
 let bkImage2;
 let bkImage3;
+let bkImage4;
 let player2pic;
 let encounterPic;
 let playerPicDown;
