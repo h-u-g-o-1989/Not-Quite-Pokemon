@@ -12,6 +12,3 @@ let playerPicDown;
 let playerPicUp;
 let playerPicRight;
 let playerPicLeft;
-
-const playButton = document.getElementById("buttonPlayMusic");
-const stopButton = document.getElementById("buttonStopMusic");

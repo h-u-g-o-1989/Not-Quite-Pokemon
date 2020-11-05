@@ -45,6 +45,8 @@ class Game {
       console.log("drawing player");
     }
     if (this.levelCount === 1) {
+      pokemonSong.stop();
+      westernSong.play();
       this.fence2.style.display = "flex";
       this.background = new Background(bkImage2);
       console.log("drawing background");
@@ -61,6 +63,8 @@ class Game {
       console.log("drawing player");
     }
     if (this.levelCount === 2) {
+      westernSong.stop();
+      thronesSong.play();
       this.background = new Background(bkImage3);
       console.log("drawing background");
       this.encounter = new Collectables(theQuestionsLevelThree, this.pikachu);

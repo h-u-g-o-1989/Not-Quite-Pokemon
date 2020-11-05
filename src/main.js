@@ -11,12 +11,12 @@ function preload() {
   playerPicRight = loadImage("./assets/IMG_0802.PNG");
   playerPicLeft = loadImage("./assets/IMG_0801.PNG");
   pokemonSong = loadSound(
-    "../sounds/Pokémon Theme (8 Bit Remix Cover Version) [Tribute to Pokémon] - 8 Bit Universe (128 kbps).mp3"
+    "./sounds/Pokémon Theme (8 Bit Remix Cover Version) [Tribute to Pokémon] - 8 Bit Universe (128 kbps).mp3"
   );
   westernSong = loadSound(
-    "../sounds/{8 BIT} The Good the Bad and the Ugly Theme (128 kbps).mp3"
+    "./sounds/{8 BIT} The Good the Bad and the Ugly Theme (128 kbps).mp3"
   );
-  thronesSong = loadSound("../sounds/Game of Thrones 8-bit (128 kbps).mp3");
+  thronesSong = loadSound("./sounds/Game of Thrones 8-bit (128 kbps).mp3");
 }
 
 function setup() {
