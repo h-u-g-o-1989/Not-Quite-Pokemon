@@ -35,6 +35,9 @@ body {
   flex-direction: column;
   padding: 20px;
 }
+.answer {
+  margin-left: 20px;
+}
 #start {
   z-index: 1;
   background-image: url(../assets/IMG_0813.PNG);
@@ -94,7 +97,9 @@ body {
   padding: 20px;
   text-align: center;
 }
-
+button {
+  font-family: "Press Start 2P", cursive;
+}
 h1 {
   font-weight: 100;
   margin: 5px 10px;

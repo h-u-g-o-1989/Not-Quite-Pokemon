@@ -7,29 +7,30 @@ class Game {
     this.lives = 3;
     // this.livesLeft = document.getElementById("livesLeft");
     this.initialiseGame();
+
     this.fence2 = document.getElementById("fence2");
     this.start = document.getElementById("start");
     this.livesAndHealth = document.getElementById("topBoard");
     this.startButton = document.getElementById("startGame");
-    this.playButton = document.getElementById("buttonPlayMusic");
-    this.playButton.onclick = () => {
-      pokemonSong.play();
-      pokemonSong.volume = 0.01;
-    };
-    this.stopButton = document.getElementById("buttonStopMusic");
-    this.stopButton.onclick = () => {
-      pokemonSong.stop();
-    };
     // this.pokemonSong = document.getElementById("pokemon");
     this.startButton.onclick = () => {
       this.start.style.display = "none";
       this.livesAndHealth.style.zIndex = "1";
       pokemonSong.play();
-      pokemonSong.volume = 0.01;
+      pokemonSong.setVolume(0.5);
     };
   }
   initialiseGame() {
     if (this.levelCount === 0) {
+      this.playButton = document.getElementById("buttonPlayMusic");
+      this.playButton.onclick = () => {
+        pokemonSong.play();
+        pokemonSong.setVolume(0.5);
+      };
+      this.stopButton = document.getElementById("buttonStopMusic");
+      this.stopButton.onclick = () => {
+        pokemonSong.stop();
+      };
       this.background = new Background(bkImage);
       console.log("drawing background");
       this.encounter = new Collectables(theQuestionsLevelOne);
@@ -47,6 +48,15 @@ class Game {
     if (this.levelCount === 1) {
       pokemonSong.stop();
       westernSong.play();
+      this.playButton = document.getElementById("buttonPlayMusic");
+      this.playButton.onclick = () => {
+        westernSong.play();
+        westernSong.setVolume(0.5);
+      };
+      this.stopButton = document.getElementById("buttonStopMusic");
+      this.stopButton.onclick = () => {
+        westernSong.stop();
+      };
       this.fence2.style.display = "flex";
       this.background = new Background(bkImage2);
       console.log("drawing background");
@@ -65,15 +75,25 @@ class Game {
     if (this.levelCount === 2) {
       westernSong.stop();
       thronesSong.play();
+      this.playButton = document.getElementById("buttonPlayMusic");
+      this.playButton.onclick = () => {
+        thronesSong.play();
+        thronesSong.setVolume(0.5);
+      };
+      this.stopButton = document.getElementById("buttonStopMusic");
+      this.stopButton.onclick = () => {
+        thronesSong.stop();
+      };
       this.background = new Background(bkImage3);
       console.log("drawing background");
-      this.encounter = new Collectables(theQuestionsLevelThree, this.pikachu);
+      this.encounter = new Collectables(theQuestionsLevelThree);
       console.log("drawing encounters");
-      this.pikachu = new Pikachu(CELL_SIZE * 0, CELL_SIZE * 2);
+      this.pikachu = new Pikachu(CELL_SIZE * 0, CELL_SIZE * 1);
       this.player = new Player(
-        CELL_SIZE * 0,
         CELL_SIZE * 1,
-        deadZonesLevelThree
+        CELL_SIZE * 1,
+        deadZonesLevelThree,
+        this.pikachu
       );
 
       console.log("drawing player");

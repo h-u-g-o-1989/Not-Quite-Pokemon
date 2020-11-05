@@ -129,6 +129,7 @@ class Collectables {
     this.heart3 = document.getElementById("life3");
     this.restartButton = document.getElementById("restartButton");
     this.restartGameButton = document.getElementById("restartGame");
+    this.livesAndHealth = document.getElementById("topBoard");
 
     this.arrayOfQuestions = [...theQuestions]; //changed it so we delete from a copy of the array then when we reload the game we start with a new copy.
   }
@@ -290,15 +291,27 @@ class Collectables {
     if (game.levelCount === 2 && this.numberOfQuestions === 0) {
       this.finalScore.innerHTML = game.score;
       this.finished.style.display = "flex";
-      pokemonSong.stop();
     }
     if (game.lives === 0) {
       this.endScore.innerHTML = game.score;
-      pokemonSong.stop();
+      if (game.levelCount === 0) {
+        pokemonSong.stop();
+      }
+
       this.gameLost.style.display = "flex";
     }
 
     this.restartButton.onclick = () => {
+      if (game.levelCount === 0) {
+        pokemonSong.stop();
+      }
+
+      if (game.levelCount === 1) {
+        westernSong.stop();
+      }
+      if (game.levelCount === 2) {
+        thronesSong.stop();
+      }
       game.resetScore();
       game.resetLives();
       game.resetLevel();
@@ -310,8 +323,18 @@ class Collectables {
       this.heart1.style.opacity = "100%";
       this.heart2.style.opacity = "100%";
       this.heart3.style.opacity = "100%";
+      this.livesAndHealth.style.zIndex = "-1";
     };
     this.restartGameButton.onclick = () => {
+      if (game.levelCount === 0) {
+        pokemonSong.stop();
+      }
+      if (game.levelCount === 1) {
+        westernSong.stop();
+      }
+      if (game.levelCount === 2) {
+        thronesSong.stop();
+      }
       game.resetScore();
       game.resetLives();
       game.resetLevel();
@@ -320,6 +343,10 @@ class Collectables {
       this.fence2.style.display = "none";
       this.finished.style.display = "none";
       this.start.style.display = "flex";
+      this.heart1.style.opacity = "100%";
+      this.heart2.style.opacity = "100%";
+      this.heart3.style.opacity = "100%";
+      this.livesAndHealth.style.zIndex = "-1";
     };
   }
   newRound() {
