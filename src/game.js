@@ -98,6 +98,30 @@ class Game {
 
       console.log("drawing player");
     }
+    if (this.levelCount === 3) {
+      thronesSong.stop();
+      breakingBits.play();
+      this.playButton = document.getElementById("buttonPlayMusic");
+      this.playButton.onclick = () => {
+        breakingBits.play();
+        breakingBits.setVolume(0.5);
+      };
+      this.stopButton = document.getElementById("buttonStopMusic");
+      this.stopButton.onclick = () => {
+        breakingBits.stop();
+      };
+      this.background = new Background(bkImage);
+      console.log("drawing background");
+      this.encounter = new Collectables(theQuestionsLevelFour);
+      console.log("drawing encounters");
+      this.pikachu = new Pikachu(CELL_SIZE * 3, CELL_SIZE * 6);
+      this.player = new Player(
+        CELL_SIZE * 3,
+        CELL_SIZE * 5,
+        deadZones,
+        this.pikachu
+      );
+    }
     //this.background2 = new BackgroundTwo(bkImage);
     //console.log("drawing background2");
     console.log("level", this.levelCount);
@@ -128,6 +152,10 @@ class Game {
   resetLevel() {
     this.levelCount = 0;
     this.roundScore = 0;
+  }
+  secretLevel() {
+    this.levelCount = 3;
+    game.initialiseGame();
   }
   drawGrid() {
     for (let i = 0; i <= WIDTH; i += CELL_SIZE) {

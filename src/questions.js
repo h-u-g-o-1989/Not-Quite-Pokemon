@@ -90,6 +90,26 @@ let theQuestionsLevelThree = [
     correctAnswer: "B",
   }),
 ];
+let theQuestionsLevelFour = [
+  new Encounter(10, 5, {
+    found: "youve found the 5th question",
+    question: "this is question 1?",
+    answerA: "Hyper Text Markup Langauge",
+    answerB: "Hyper type mess linguistics",
+    answerC: "How to make linguini",
+    answerD: "Have time make later",
+    correctAnswer: "A",
+  }),
+  new Encounter(2, 10, {
+    found: "youve found the 6th question",
+    question: "this is question 2?",
+    answerA: "ANSWER ONE",
+    answerB: "ANSWER TWO",
+    answerC: "ANSWER 3",
+    answerD: "ANSWER 4",
+    correctAnswer: "B",
+  }),
+];
 
 /* now i could create a second class in which the questions can be passed into, this now needs to be initialised on 
 the game page, so i change this.encounter to = the collectables class and pass in the parameter theQuestions
@@ -288,9 +308,27 @@ class Collectables {
         { x: 10, y: 11 },
       ];
     }
-    if (game.levelCount === 2 && this.numberOfQuestions === 0) {
+    if (
+      game.levelCount === 2 &&
+      this.numberOfQuestions === 0 &&
+      game.score >= 6
+    ) {
+      this.finished.style.display = "none";
+      game.secretLevel();
+      //game.addLevel();
+      //game.initialiseGame();
+    } else if (
+      game.score <= 5 &&
+      game.levelCount === 2 &&
+      this.numberOfQuestions === 0
+    ) {
       this.finalScore.innerHTML = game.score;
       this.finished.style.display = "flex";
+    }
+
+    if (game.levelCount === 3 && this.numberOfQuestions === 0) {
+      // this.finalScore.innerHTML = game.score;
+      // this.finished.style.display = "flex";
     }
     if (game.lives === 0) {
       this.endScore.innerHTML = game.score;
@@ -311,6 +349,9 @@ class Collectables {
       }
       if (game.levelCount === 2) {
         thronesSong.stop();
+      }
+      if (game.levelCount === 3) {
+        breakingBits.stop();
       }
       game.resetScore();
       game.resetLives();
@@ -334,6 +375,9 @@ class Collectables {
       }
       if (game.levelCount === 2) {
         thronesSong.stop();
+      }
+      if (game.levelCount === 3) {
+        breakingBits.stop();
       }
       game.resetScore();
       game.resetLives();

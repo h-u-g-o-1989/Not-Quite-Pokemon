@@ -17,6 +17,9 @@ function preload() {
     "./sounds/{8 BIT} The Good the Bad and the Ugly Theme (128 kbps).mp3"
   );
   thronesSong = loadSound("./sounds/Game of Thrones 8-bit (128 kbps).mp3");
+  breakingBits = loadSound(
+    "./sounds/Breaking Bad Theme Song (8 Bit Remix Cover Version) - 8 Bit Universe.mp3"
+  );
 }
 
 function setup() {
