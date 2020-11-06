@@ -16,8 +16,8 @@ class Game {
     this.startButton.onclick = () => {
       this.start.style.display = "none";
       this.livesAndHealth.style.zIndex = "1";
-      pokemonSong.play();
       pokemonSong.setVolume(0.5);
+      pokemonSong.play();
     };
   }
   initialiseGame() {
@@ -51,8 +51,8 @@ class Game {
       westernSong.play();
       this.playButton = document.getElementById("buttonPlayMusic");
       this.playButton.onclick = () => {
-        westernSong.play();
         westernSong.setVolume(0.5);
+        westernSong.play();
       };
       this.stopButton = document.getElementById("buttonStopMusic");
       this.stopButton.onclick = () => {
@@ -79,8 +79,8 @@ class Game {
       thronesSong.play();
       this.playButton = document.getElementById("buttonPlayMusic");
       this.playButton.onclick = () => {
-        thronesSong.play();
         thronesSong.setVolume(0.5);
+        thronesSong.play();
       };
       this.stopButton = document.getElementById("buttonStopMusic");
       this.stopButton.onclick = () => {
@@ -106,8 +106,8 @@ class Game {
       breakingBits.play();
       this.playButton = document.getElementById("buttonPlayMusic");
       this.playButton.onclick = () => {
-        breakingBits.play();
         breakingBits.setVolume(0.5);
+        breakingBits.play();
       };
       this.stopButton = document.getElementById("buttonStopMusic");
       this.stopButton.onclick = () => {
