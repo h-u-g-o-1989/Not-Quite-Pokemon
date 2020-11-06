@@ -146,7 +146,7 @@ let theQuestionsLevelThree = [
   new Encounter(5, 7, {
     found: "You've found a wild JavaScript",
     question: "How do we write if something is not equal to?",
-    answerA: "i != x",
+    answerA: "i !== x",
     answerB: "i > x",
     answerC: "i < x",
     answerD: "i = x-i",
