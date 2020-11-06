@@ -33,8 +33,8 @@ as the string from the encounter object then they got the answer right else they
 let theQuestionsLevelOne = [
   new Encounter(8, 5, {
     found: "You've found a wild HTML",
-    question: "Whar does HTML stand for?",
-    answerA: "Hyper Text Markup Langauge",
+    question: "What does HTML stand for?",
+    answerA: "Hyper Text Markup Language",
     answerB: "Hyper type mess linguistics",
     answerC: "How to make linguini",
     answerD: "Have time make later",
@@ -60,7 +60,7 @@ let theQuestionsLevelOne = [
   }),
   new Encounter(3, 1, {
     found: "You've found a curveball",
-    question: "Who is know as the creator of the World Wide Web?",
+    question: "Who is known as the creator of the World Wide Web?",
     answerA: "Charles Darwin",
     answerB: "Tim Berners-Lee",
     answerC: "Steve Jobs",
