@@ -32,81 +32,190 @@ as the string from the encounter object then they got the answer right else they
 
 let theQuestionsLevelOne = [
   new Encounter(8, 5, {
-    found: "youve found the first question",
-    question: "this is question 1?",
+    found: "You've found a wild HTML",
+    question: "Whar does HTML stand for?",
     answerA: "Hyper Text Markup Langauge",
     answerB: "Hyper type mess linguistics",
     answerC: "How to make linguini",
     answerD: "Have time make later",
     correctAnswer: "A",
   }),
-  new Encounter(3, 5, {
-    found: "youve found the second question",
-    question: "this is question 2?",
-    answerA: "ANSWER ONE",
-    answerB: "ANSWER TWO",
-    answerC: "ANSWER 3",
-    answerD: "ANSWER 4",
+  new Encounter(10, 2, {
+    found: "You've found a wild HTML",
+    question: "What kind of language is HTML?",
+    answerA: "Scripting",
+    answerB: "Markup",
+    answerC: "Programming",
+    answerD: "Network",
     correctAnswer: "B",
+  }),
+  new Encounter(2, 9, {
+    found: "You've found a wild HTML",
+    question: "In what year was HTML first proposed?",
+    answerA: "2000",
+    answerB: "1995",
+    answerC: "1990",
+    answerD: "1985",
+    correctAnswer: "C",
+  }),
+  new Encounter(3, 1, {
+    found: "You've found a curveball",
+    question: "Who is know as the creator of the World Wide Web?",
+    answerA: "Charles Darwin",
+    answerB: "Tim Berners-Lee",
+    answerC: "Steve Jobs",
+    answerD: "Bill Gates",
+    correctAnswer: "B",
+  }),
+  new Encounter(7, 9, {
+    found: "You've found a wild HTML",
+    question: "What is the correct tag for an ordered list?",
+    answerA: "< ordered list >",
+    answerB: "< ul >",
+    answerC: "< ol >",
+    answerD: "< li >",
+    correctAnswer: "C",
   }),
 ];
 let theQuestionsLevelTwo = [
   new Encounter(7, 5, {
-    found: "youve found the 3rd question",
-    question: "this is question 1?",
-    answerA: "Hyper Text Markup Langauge",
-    answerB: "Hyper type mess linguistics",
-    answerC: "How to make linguini",
-    answerD: "Have time make later",
-    correctAnswer: "A",
+    found: "You've found a wild CSS",
+    question: "What does CSS stand for?",
+    answerA: "Cool Styling Stuff",
+    answerB: "Creative Style Sheets",
+    answerC: "Computer Style Sheets",
+    answerD: "Cascading Style Sheets",
+    correctAnswer: "D",
   }),
   new Encounter(3, 9, {
-    found: "youve found the 4th question",
-    question: "this is question 2?",
-    answerA: "ANSWER ONE",
-    answerB: "ANSWER TWO",
-    answerC: "ANSWER 3",
-    answerD: "ANSWER 4",
-    correctAnswer: "B",
+    found: "You've found a wild CSS",
+    question: "What is the correct way to access an id in CSS?",
+    answerA: "@",
+    answerB: ">/",
+    answerC: "#",
+    answerD: "~",
+    correctAnswer: "C",
+  }),
+  new Encounter(1, 5, {
+    found: "You've found a wild CSS",
+    question: "How do you comment out in CSS?",
+    answerA: "/* */",
+    answerB: "// //",
+    answerC: "{ }",
+    answerD: "$",
+    correctAnswer: "A",
+  }),
+  new Encounter(10, 8, {
+    found: "You've found a wild CSS",
+    question: "Which property is used to change the background colour?",
+    answerA: "color",
+    answerB: "bgcolor",
+    answerC: "backgroundColor",
+    answerD: "background-color",
+    correctAnswer: "D",
+  }),
+  new Encounter(6, 2, {
+    found: "You've found a wild CSS",
+    question: "How do we insert a background-image?",
+    answerA: "src=",
+    answerB: "loadImage =",
+    answerC: "url=",
+    answerD: "Img",
+    correctAnswer: "C",
   }),
 ];
 let theQuestionsLevelThree = [
-  new Encounter(10, 5, {
-    found: "youve found the 5th question",
-    question: "this is question 1?",
-    answerA: "Hyper Text Markup Langauge",
-    answerB: "Hyper type mess linguistics",
-    answerC: "How to make linguini",
-    answerD: "Have time make later",
+  new Encounter(4, 2, {
+    found: "You've found a wild JavaScript",
+    question: "A Boolean is a Data Type?",
+    answerA: "true",
+    answerB: "possibly",
+    answerC: "false",
+    answerD: "truthy",
     correctAnswer: "A",
   }),
-  new Encounter(2, 10, {
-    found: "youve found the 6th question",
-    question: "this is question 2?",
-    answerA: "ANSWER ONE",
-    answerB: "ANSWER TWO",
-    answerC: "ANSWER 3",
-    answerD: "ANSWER 4",
+  new Encounter(2, 9, {
+    found: "You've found a wild JavaScript",
+    question: "How do we write to the console?",
+    answerA: "console.blog",
+    answerB: "console-log",
+    answerC: "console.log",
+    answerD: "log.this",
+    correctAnswer: "C",
+  }),
+  new Encounter(5, 7, {
+    found: "You've found a wild JavaScript",
+    question: "How do we write if something is not equal to?",
+    answerA: "i != x",
+    answerB: "i > x",
+    answerC: "i < x",
+    answerD: "i = x-i",
+    correctAnswer: "A",
+  }),
+  new Encounter(8, 4, {
+    found: "You've found a wild JavaScript",
+    question: "How do we call a function?",
+    answerA: "call my function( )",
+    answerB: "function.call( )",
+    answerC: "function( )",
+    answerD: "please just work( )",
+    correctAnswer: "C",
+  }),
+  new Encounter(10, 9, {
+    found: "You've found a wild JavaScript",
+    question: "How do we write an if statement?",
+    answerA: "if this then that",
+    answerB: "if( i === 0 )",
+    answerC: "if. i = 0",
+    answerD: "if i === 0",
     correctAnswer: "B",
   }),
 ];
 let theQuestionsLevelFour = [
-  new Encounter(10, 5, {
-    found: "youve found the 5th question",
-    question: "this is question 1?",
-    answerA: "Hyper Text Markup Langauge",
-    answerB: "Hyper type mess linguistics",
-    answerC: "How to make linguini",
-    answerD: "Have time make later",
+  new Encounter(3, 5, {
+    found: "You've found a wild Heisenberg",
+    question: "Which year was Breaking Bad first aired?",
+    answerA: "2007",
+    answerB: "2008",
+    answerC: "2010",
+    answerD: "2011",
+    correctAnswer: "B",
+  }),
+  new Encounter(2, 9, {
+    found: "You've found a wild Heisenberg",
+    question: "Which area of science does Walt teach at school?",
+    answerA: "Chemistry",
+    answerB: "Biology",
+    answerC: "Physics",
+    answerD: "Maths",
     correctAnswer: "A",
   }),
-  new Encounter(2, 10, {
-    found: "youve found the 6th question",
-    question: "this is question 2?",
-    answerA: "ANSWER ONE",
-    answerB: "ANSWER TWO",
-    answerC: "ANSWER 3",
-    answerD: "ANSWER 4",
+  new Encounter(9, 3, {
+    found: "You've found a wild Heisenberg",
+    question: "Name the plant Walt used to poison a child?",
+    answerA: "tilly of the valley",
+    answerB: "poisonous tomatoes",
+    answerC: "lilly of the valley",
+    answerD: "poisin ivy",
+    correctAnswer: "C",
+  }),
+  new Encounter(5, 6, {
+    found: "You've found a wild Heisenberg",
+    question:
+      "What nickname does Jesse give to the RV he uses with Walt to cook meth?",
+    answerA: "home",
+    answerB: "meth palace",
+    answerC: "the krystal ship",
+    answerD: "the cook house",
+    correctAnswer: "C",
+  }),
+  new Encounter(10, 8, {
+    found: "You've found a wild Heisenberg",
+    question: "Name the two elements from the breaking bad title?",
+    answerA: "Bromium, Barry",
+    answerB: "Bromine, Barium",
+    answerC: "Boron, Bismuth",
+    answerD: "Beryllium, Boron",
     correctAnswer: "B",
   }),
 ];
@@ -117,8 +226,8 @@ then we need to loop through the array of questions so we can draw each one of t
 
 class Collectables {
   constructor(theQuestions) {
-    this.lives = 1;
-    this.numberOfQuestions = 2;
+    this.lives = 3;
+    this.numberOfQuestions = 5;
     this.fence = document.getElementById("fence");
     this.fence2 = document.getElementById("fence2");
     this.finished = document.getElementById("finished");
@@ -232,12 +341,6 @@ class Collectables {
       if (game.roundScore === 5) {
         this.pokeBall5.style.opacity = "100";
       }
-      if (game.roundScore === 6) {
-        this.pokeBall6.style.opacity = "100";
-      }
-      if (game.roundScore === 7) {
-        this.pokeBall7.style.opacity = "100";
-      }
     } else {
       this.numberOfQuestions--;
       this.roundScore--;
@@ -312,13 +415,13 @@ class Collectables {
     if (
       game.levelCount === 2 &&
       this.numberOfQuestions === 0 &&
-      game.score >= 6
+      game.score >= 14
     ) {
       this.finished.style.display = "none";
       game.secretLevel();
-      this.numberOfQuestions = 2;
+      this.numberOfQuestions = 5;
     } else if (
-      game.score <= 5 &&
+      game.score <= 13 &&
       game.levelCount === 2 &&
       this.numberOfQuestions === 0
     ) {
@@ -426,8 +529,6 @@ class Collectables {
     this.pokeBall3.style.opacity = "50%";
     this.pokeBall4.style.opacity = "50%";
     this.pokeBall5.style.opacity = "50%";
-    this.pokeBall6.style.opacity = "50%";
-    this.pokeBall7.style.opacity = "50%";
   }
   /* next thing is to write the html questions and answers with buttons, then need to use the document.getElementById to 
 make the text window appear when we step on one of the collectables, we also then need to change the innerHTML to the relevant encounter*/

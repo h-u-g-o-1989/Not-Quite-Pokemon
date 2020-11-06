@@ -121,13 +121,13 @@ let deadZonesLevelFour = [
 ];
 
 class Player {
-  constructor(col, row, deadZones, pikachu) {
+  constructor(col, row, deadZones, playerSprite, pikachu) {
     this.col = col;
     this.row = row;
     this.height = CELL_SIZE;
     this.width = CELL_SIZE;
     this.deadZones = deadZones;
-    this.image = playerPicDown;
+    this.image = playerSprite;
     //to get our grid reference we need to calculate it, we know that one cell is 75px that we dvide the canvas by the number of grids (12 in this case)
     //this col or this row is currently defined by pixel count, so if we divide that by 75 that will give us the coordinates according to the map ive drawn.
     // now we can check to see if the players x and y is the same as the x and y of the deadzones, just have to iterate through the elements of the array
@@ -180,7 +180,19 @@ class Player {
     this.col = this.col - 75;
     this.pikachu.col = playerInitialY;
     this.pikachu.row = playerInitialX;
-    this.image = playerPicUp;
+    if (game.levelCount === 0) {
+      this.image = playerPicUp;
+    }
+    if (game.levelCount === 1) {
+      this.image = playerPicUp2;
+    }
+    if (game.levelCount === 2) {
+      this.image = playerPicUp3;
+    }
+    if (game.levelCount === 3) {
+      this.image = playerPicUp4;
+    }
+
     this.checkCellForCollectables(x, y);
     console.log("this is our new col and row", this.col, this.row);
   }
@@ -204,7 +216,19 @@ class Player {
       }
     }
     this.col = this.col + 75;
-    this.image = playerPicDown;
+    if (game.levelCount === 0) {
+      this.image = playerPicDown;
+    }
+    if (game.levelCount === 1) {
+      this.image = playerPicDown2;
+    }
+    if (game.levelCount === 2) {
+      this.image = playerPicDown3;
+    }
+    if (game.levelCount === 3) {
+      this.image = playerPicDown4;
+    }
+
     this.pikachu.col = playerInitialY;
     this.pikachu.row = playerInitialX;
     this.checkCellForCollectables(x, y);
@@ -237,7 +261,19 @@ class Player {
       }
     }
     this.row = this.row + 75;
-    this.image = playerPicRight;
+    if (game.levelCount === 0) {
+      this.image = playerPicRight;
+    }
+    if (game.levelCount === 1) {
+      this.image = playerPicRight2;
+    }
+    if (game.levelCount === 2) {
+      this.image = playerPicRight3;
+    }
+    if (game.levelCount === 3) {
+      this.image = playerPicRight4;
+    }
+
     this.pikachu.col = playerInitialY;
     this.pikachu.row = playerInitialX;
     this.checkCellForCollectables(x, y);
@@ -263,7 +299,19 @@ class Player {
       }
     }
     this.row = this.row - 75;
-    this.image = playerPicLeft;
+    if (game.levelCount === 0) {
+      this.image = playerPicLeft;
+    }
+    if (game.levelCount === 1) {
+      this.image = playerPicLeft2;
+    }
+    if (game.levelCount === 2) {
+      this.image = playerPicLeft3;
+    }
+    if (game.levelCount === 3) {
+      this.image = playerPicLeft4;
+    }
+
     this.pikachu.col = playerInitialY;
     this.pikachu.row = playerInitialX;
     this.checkCellForCollectables(x, y);

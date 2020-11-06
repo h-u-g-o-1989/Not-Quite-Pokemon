@@ -40,6 +40,7 @@ class Game {
         CELL_SIZE * 3,
         CELL_SIZE * 5,
         deadZones,
+        playerPicDown,
         this.pikachu
       );
 
@@ -67,6 +68,7 @@ class Game {
         CELL_SIZE * 0,
         CELL_SIZE * 5,
         deadZonesLevelTwo,
+        playerPicDown2,
         this.pikachu
       );
 
@@ -93,6 +95,7 @@ class Game {
         CELL_SIZE * 1,
         CELL_SIZE * 1,
         deadZonesLevelThree,
+        playerPicDown3,
         this.pikachu
       );
 
@@ -119,6 +122,7 @@ class Game {
         CELL_SIZE * 3,
         CELL_SIZE * 5,
         deadZonesLevelFour,
+        playerPicDown4,
         this.pikachu
       );
     }
